@@ -10,10 +10,17 @@ var createHamlPreprocessor = function(args, config, logger, helper) {
   //
 
   var transpileJS = function(content, file, done) {
-    var haml = require('haml');
+    var compiled = '';
+    var haml = require('child_process').spawn('haml');
 
-    var compiled = haml.compile(content);
-    done(eval(compiled));
+    haml.stdout.on('data', function (data) {
+      compiled = (data || '').toString();
+    });
+    haml.on('exit', function (code) {
+      done(null, compiled);
+    });
+    haml.stdin.write(content);
+    haml.stdin.end();
   };
 
   var transpileCoffee = function(content, file, done) {

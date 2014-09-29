@@ -18,7 +18,6 @@
     "email": "info@subteca.com"
   },
   "dependencies": {
-    "haml": "0.4.3",
     "haml-coffee": "1.14.x"
   },
   "peerDependencies": {

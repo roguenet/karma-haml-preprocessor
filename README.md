@@ -2,6 +2,11 @@ karma-preprocessor-haml
 =======================
 > A Karma preprocessor that Compile haml script to html.
 
+**WARNING**: This is a hacked version of [karma-haml-preprocessor](https://github.com/ondrasak/karma-haml-preprocessor)
+which now requires [haml](https://github.com/haml/haml) to run.
+This was done to allow multiline element declarations which
+[doesn't work in haml-js](https://github.com/creationix/haml-js/issues/74).
+
 **Supports [haml-js][] and [haml-coffee][] as language compilers**
 
 [haml-coffee]: https://github.com/netzpirat/haml-coffee
