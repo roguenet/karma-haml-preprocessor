@@ -13,6 +13,8 @@ var createHamlPreprocessor = function(args, config, logger, helper) {
     var compiled = '';
     var haml = require('child_process').spawn('haml');
 
+    file.path = file.originalPath.replace(/(\.html)?\.haml/, '.html')
+
     haml.stdout.on('data', function (data) {
       compiled = (data || '').toString();
     });
